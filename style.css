@@ -696,7 +696,7 @@ p {
 }
 
 .cards .sup-crd {
-  border: var(--border-stroke);
+  border: var(--new-border);
   padding: 14px 0px 14px 14px;
   border-radius: 0.3rem;
   color: var(--text-color-1);
