@@ -1,24 +1,53 @@
 "use strict";
 
-// Mobile Hamburger Menu
-// Select elements
+// // Mobile Hamburger Menu
+// // Select elements
+// const hamburger = document.querySelector(".hamburger");
+// const navLinks = document.querySelector(".navlinks");
+// const navButtons = document.querySelector(".nav__buttons");
+
+// // Toggle menu on click
+// hamburger.addEventListener("click", () => {
+//   hamburger.classList.toggle("active"); // animate hamburger
+//   navLinks.classList.toggle("active"); // show/hide nav links
+//   navButtons.classList.toggle("active"); // show/hide buttons
+// });
+
+// // Optional: Close menu when a link is clicked (mobile UX best practice)
+// document.querySelectorAll(".navlinks a").forEach((link) => {
+//   link.addEventListener("click", () => {
+//     hamburger.classList.remove("active");
+//     navLinks.classList.remove("active");
+//     navButtons.classList.remove("active");
+//   });
+// });
+
 const hamburger = document.querySelector(".hamburger");
 const navLinks = document.querySelector(".navlinks");
 const navButtons = document.querySelector(".nav__buttons");
+const icon = hamburger.querySelector("span"); // material-symbols-outlined icon
 
 // Toggle menu on click
 hamburger.addEventListener("click", () => {
-  hamburger.classList.toggle("active"); // animate hamburger
-  navLinks.classList.toggle("active"); // show/hide nav links
-  navButtons.classList.toggle("active"); // show/hide buttons
+  hamburger.classList.toggle("active");
+  navLinks.classList.toggle("active");
+  navButtons.classList.toggle("active");
+
+  // Change hamburger → close icon
+  if (hamburger.classList.contains("active")) {
+    icon.textContent = "close";
+  } else {
+    icon.textContent = "menu";
+  }
 });
 
-// Optional: Close menu when a link is clicked (mobile UX best practice)
+// Close menu when a link is clicked (mobile UX best practice)
 document.querySelectorAll(".navlinks a").forEach((link) => {
   link.addEventListener("click", () => {
     hamburger.classList.remove("active");
     navLinks.classList.remove("active");
     navButtons.classList.remove("active");
+    icon.textContent = "menu"; // reset back to hamburger
   });
 });
 

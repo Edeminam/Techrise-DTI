@@ -169,7 +169,7 @@ nav {
 
 /* Hamburger animation */
 .hamburger.active span {
-  transform: rotate(90deg); /* example, you can style however */
+  transform: rotate(90deg);
 }
 
 /* Hamburger */
@@ -177,7 +177,15 @@ nav {
   display: none;
   background: none;
   border: none;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1001;
+}
+
+.hamburger span {
   font-size: 2rem;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
 /* HERO SECTION */
