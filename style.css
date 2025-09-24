@@ -665,7 +665,6 @@ p {
   align-items: center;
   margin-bottom: 5rem;
   margin-top: 2.5rem;
-  background-color: var(--contrast-bg);
 }
 
 .support-mission p {
@@ -696,7 +695,8 @@ p {
 }
 
 .cards .sup-crd {
-  border: var(--new-border);
+  border: 1px solid var(--new-border);
+  background-color: var(--contrast-bg);
   padding: 14px 0px 14px 14px;
   border-radius: 0.3rem;
   color: var(--text-color-1);
