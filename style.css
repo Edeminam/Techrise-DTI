@@ -806,6 +806,27 @@ nav {
   margin-top: 2.5rem;
 }
 
+.web-count,
+.master-count,
+.attend-count {
+  display: flex;
+  flex-direction: column;
+  border: var(--border-stroke);
+  padding: 14px 0px 14px 14px;
+  border-radius: 0.3rem;
+  color: var(--text-color-1);
+  align-items: center;
+  margin-right: 20px;
+}
+
+.counter div[data-target] {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--text-color-1);
+  margin-bottom: 0.5rem;
+  transition: all 0.3s ease-in-out;
+}
+
 /*Stay informed */
 
 .stay-informed .content {
