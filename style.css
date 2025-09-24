@@ -1117,9 +1117,15 @@ p {
   }
 
   .steep {
+    width: 100%;
+    padding-top: 150px;
     grid-template-columns: 1fr;
     margin-bottom: 60px;
     gap: 1rem;
+  }
+
+  .cmts {
+    width: 100%;
   }
 
   .gt {
@@ -1132,9 +1138,22 @@ p {
     font-size: 1.8rem;
   }
 
-  .hd-right {
+  .cnts {
+    width: 100%;
+  }
+
+  .hd-right,
+  .card-1,
+  .card-2,
+  .card-3,
+  .card-4 {
+    width: 100%;
     grid-template-columns: 1fr;
     gap: 15px;
+  }
+
+  .support-mission {
+    padding-top: 50px;
   }
 
   .support-mission .cards {
@@ -1146,6 +1165,10 @@ p {
     font-size: 1.8rem;
   }
 
+  .cards .sup-crd {
+    width: 100%;
+  }
+
   .counter {
     grid-template-columns: 1fr;
     gap: 15px;
@@ -1153,6 +1176,12 @@ p {
 
   .counter div[data-target] {
     font-size: 2rem;
+  }
+
+  .web-count,
+  .master-count,
+  .attend-count {
+    width: 100%;
   }
 
   .stay-informed .content {
