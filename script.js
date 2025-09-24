@@ -1,6 +1,26 @@
 "use strict";
 
 // Mobile Hamburger Menu
+// Select elements
+const hamburger = document.querySelector(".hamburger");
+const navLinks = document.querySelector(".navlinks");
+const navButtons = document.querySelector(".nav__buttons");
+
+// Toggle menu on click
+hamburger.addEventListener("click", () => {
+  hamburger.classList.toggle("active"); // animate hamburger
+  navLinks.classList.toggle("active"); // show/hide nav links
+  navButtons.classList.toggle("active"); // show/hide buttons
+});
+
+// Optional: Close menu when a link is clicked (mobile UX best practice)
+document.querySelectorAll(".navlinks a").forEach((link) => {
+  link.addEventListener("click", () => {
+    hamburger.classList.remove("active");
+    navLinks.classList.remove("active");
+    navButtons.classList.remove("active");
+  });
+});
 
 // Newsletter Form Validation
 const sendBtn = document.querySelector(".send-btn a");

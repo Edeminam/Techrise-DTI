@@ -156,6 +156,22 @@ nav {
   font-weight: bold;
 }
 
+/* Hide nav links/buttons on mobile */
+
+/* When active → show them */
+.navlinks.active,
+.nav__buttons.active {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: center;
+}
+
+/* Hamburger animation */
+.hamburger.active span {
+  transform: rotate(90deg); /* example, you can style however */
+}
+
 /* Hamburger */
 .hamburger {
   display: none;
@@ -951,6 +967,14 @@ p {
 
 /* Desktop (992px to 1199px) */
 @media (max-width: 1199px) {
+  .hero {
+    height: 100%;
+    padding-top: 200px;
+    padding-bottom: 100px;
+    margin-bottom: 0;
+    box-sizing: border-box;
+  }
+
   .hero-text h1 {
     font-size: 3.2rem;
     line-height: 3.4rem;
@@ -962,6 +986,23 @@ p {
   .support-hdr h3,
   .txt h3 {
     font-size: 2rem;
+  }
+
+  .partners {
+    margin-top: 0;
+  }
+
+  .projects {
+    height: 100%;
+  }
+
+  .support-mission {
+    height: 100%;
+    margin-bottom: 0;
+  }
+
+  .counter {
+    height: 100%;
   }
 
   .counter div[data-target] {
@@ -992,7 +1033,7 @@ p {
   .hero {
     gap: 2rem;
     padding-top: 120px;
-    margin-bottom: 5rem;
+    margin-bottom: 1rem;
   }
 
   .hero-text h1 {
@@ -1005,7 +1046,7 @@ p {
   }
 
   .hero-text p {
-    text-align: center;
+    text-align: left;
   }
 
   .about {
@@ -1330,6 +1371,14 @@ p {
   .card-3,
   .card-4 {
     padding: 12px;
+  }
+
+  .support-mission {
+    margin-bottom: auto;
+  }
+
+  .support-hdr p {
+    text-align: center;
   }
 
   .cards .sup-crd {
