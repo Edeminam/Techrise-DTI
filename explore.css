@@ -202,3 +202,39 @@ nav {
   font-weight: 300;
   letter-spacing: 1px;
 }
+
+.web-hdr {
+  background-color: var(--contrast-bg);
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.web-hdr h4 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--plain-white);
+}
+
+.web-hdr p {
+  font-size: 0.875rem;
+  font-weight: 200;
+  color: var(--stroke-grey);
+  letter-spacing: 2px;
+}
+
+.videos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 10px;
+}
+
+.webinar-content iframe {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16 / 9; /* Keeps proper video proportion */
+  border-radius: 10px;
+  border: none;
+}
