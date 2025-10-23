@@ -239,14 +239,35 @@ nav {
   border: none;
 }
 
+.rec-hdr {
+  background-color: var(--contrast-bg);
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.rec-hdr h4 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--plain-white);
+}
+
+.rec-hdr p {
+  font-size: 0.875rem;
+  font-weight: 200;
+  color: var(--stroke-grey);
+  letter-spacing: 2px;
+}
+
 .reci-peeps {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   max-width: 1000px;
-  align-items: center;
   padding-top: 2rem;
-  margin: 0 auto;
+  padding-bottom: 3rem;
+  /* margin: 0 auto; */
 }
 
 .recipient-card {
@@ -276,4 +297,43 @@ nav {
 .recipient-card span {
   font-size: 14px;
   color: #777;
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.social-media p {
+  font-weight: 600;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-color-2);
+}
+
+.footer h3 {
+  font-size: 1.5rem;
+  padding-bottom: 5px;
+  color: var(--plain-white);
+}
+
+.contact p {
+  color: var(--text-color-2);
+}
+
+.social-media a {
+  text-decoration: underline;
+  color: var(--primary-color);
+  margin-right: 1rem;
+}
+
+/*COP*/
+.cop .copy {
+  text-align: left;
+  font-size: 0.75rem;
+  padding: 10px 0;
+  color: var(--text-color-1);
 }
