@@ -484,6 +484,7 @@ nav {
   }
 
   .hamburger {
+    color: var(--plain-white);
     display: block;
   }
 
@@ -550,6 +551,11 @@ nav {
 
   .logotxt .sub {
     font-size: 0.6rem;
+  }
+
+  .hamburger {
+    color: var(--plain-white);
+    display: block;
   }
 
   .exp-work {
