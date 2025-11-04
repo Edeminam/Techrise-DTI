@@ -90,6 +90,7 @@ if (sendBtn) {
   });
 }
 
+
 //SECOND OPTION
 // const sendBtn = document.querySelector(".send-btn a");
 // if (sendBtn) {

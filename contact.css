@@ -227,6 +227,11 @@ nav {
   padding: 20px;
 }
 
+.contact-form h2 {
+  color: #111;
+  margin-bottom: 15px;
+}
+
 form {
   display: flex;
   flex-direction: column;
