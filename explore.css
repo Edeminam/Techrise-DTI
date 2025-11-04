@@ -608,9 +608,13 @@ nav {
     height: 180px;
   }
 
-  .stay-informed .content {
+  /* .stay-informed .content {
     padding: 25px 15px;
     margin-bottom: 3rem;
+  } */
+
+  .stay-informed .content {
+    padding: 20px;
   }
 
   .txt h3 {
@@ -621,7 +625,7 @@ nav {
     font-size: 0.875rem;
   }
 
-  .entryarea input {
+  /* .entryarea input {
     height: 50px;
     font-size: 0.9rem;
   }
@@ -633,6 +637,26 @@ nav {
   .entryarea .send-btn a {
     padding: 15px 25px;
     font-size: 0.9rem;
+  } */
+
+
+  .entryarea {
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+  }
+
+  .entryarea label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    left: 15px;
+    font-size: 0.9rem;
+  }
+
+  .entryarea input {
+    width: 100%;
   }
 
   .footer h3 {
