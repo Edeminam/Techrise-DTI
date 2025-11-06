@@ -1,94 +1,151 @@
 "use strict";
 
-const hamburger = document.querySelector(".hamburger");
-const navLinks = document.querySelector(".navlinks");
-const navButtons = document.querySelector(".nav__buttons");
-const icon = hamburger.querySelector("span"); // material-symbols-outlined icon
+// Get DOM elements
+const hamburger = document.querySelector('.hamburger');
+const navlinks = document.querySelector('.navlinks');
+const navButtons = document.querySelector('.nav__buttons');
 
-// Toggle menu on click
-hamburger.addEventListener("click", () => {
-  hamburger.classList.toggle("active");
-  navLinks.classList.toggle("active");
-  navButtons.classList.toggle("active");
+// Toggle menu function
+function toggleMenu() {
+  hamburger.classList.toggle('active');
+  navlinks.classList.toggle('active');
+  navButtons.classList.toggle('active');
+  
+  // Update aria-label for accessibility
+  const isOpen = hamburger.classList.contains('active');
+  hamburger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Toggle menu');
+  hamburger.setAttribute('aria-expanded', isOpen);
+}
 
-  // Change hamburger → close icon
-  if (hamburger.classList.contains("active")) {
-    icon.textContent = "close";
-  } else {
-    icon.textContent = "menu";
+// Event listener for hamburger click
+hamburger.addEventListener('click', toggleMenu);
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+  if (!hamburger.contains(e.target) && 
+      !navlinks.contains(e.target) && 
+      !navButtons.contains(e.target)) {
+    hamburger.classList.remove('active');
+    navlinks.classList.remove('active');
+    navButtons.classList.remove('active');
+    hamburger.setAttribute('aria-label', 'Toggle menu');
+    hamburger.setAttribute('aria-expanded', 'false');
   }
 });
 
-// Close menu when a link is clicked (mobile UX best practice)
-document.querySelectorAll(".navlinks a").forEach((link) => {
-  link.addEventListener("click", () => {
-    hamburger.classList.remove("active");
-    navLinks.classList.remove("active");
-    navButtons.classList.remove("active");
-    icon.textContent = "menu"; // reset back to hamburger
+// Close menu when clicking on a nav link (optional, for smooth UX)
+const navLinks = document.querySelectorAll('.navlinks a');
+navLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    navlinks.classList.remove('active');
+    navButtons.classList.remove('active');
+    hamburger.setAttribute('aria-label', 'Toggle menu');
+    hamburger.setAttribute('aria-expanded', 'false');
   });
 });
 
-// Newsletter Form Validation
+// Handle window resize (close menu if expanded when resizing to desktop)
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 768) {
+    hamburger.classList.remove('active');
+    navlinks.classList.remove('active');
+    navButtons.classList.remove('active');
+    hamburger.setAttribute('aria-label', 'Toggle menu');
+    hamburger.setAttribute('aria-expanded', 'false');
+  }
+});
 
-(function () {
-  emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
-})();
+//FIRST OPTION FOR HAMBURGER MENU
+// const hamburger = document.querySelector(".hamburger");
+// const navLinks = document.querySelector(".navlinks");
+// const navButtons = document.querySelector(".nav__buttons");
+// const icon = hamburger.querySelector("span"); // material-symbols-outlined icon
 
-// Step 3: Send email when button is clicked
-const sendBtn = document.querySelector(".send-btn a");
-if (sendBtn) {
-  sendBtn.addEventListener("click", async (e) => {
-    e.preventDefault();
-    const emailInput = document.querySelector(".entryarea input");
+// // Toggle menu on click
+// hamburger.addEventListener("click", () => {
+//   hamburger.classList.toggle("active");
+//   navLinks.classList.toggle("active");
+//   navButtons.classList.toggle("active");
 
-    // Validate email
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (emailInput && emailRegex.test(emailInput.value)) {
-      const subscriberEmail = emailInput.value;
+//   // Change hamburger → close icon
+//   if (hamburger.classList.contains("active")) {
+//     icon.textContent = "close";
+//   } else {
+//     icon.textContent = "menu";
+//   }
+// });
 
-      // Disable button and show loading
-      const originalText = sendBtn.textContent;
-      sendBtn.textContent = "Sending...";
-      sendBtn.style.pointerEvents = "none";
-      sendBtn.style.opacity = "0.6";
+// // Close menu when a link is clicked (mobile UX best practice)
+// document.querySelectorAll(".navlinks a").forEach((link) => {
+//   link.addEventListener("click", () => {
+//     hamburger.classList.remove("active");
+//     navLinks.classList.remove("active");
+//     navButtons.classList.remove("active");
+//     icon.textContent = "menu"; // reset back to hamburger
+//   });
+// });
 
-      try {
-        // Send email using EmailJS
-        const response = await emailjs.send(
-          "service_tbhfnve", // Replace with your EmailJS Service ID
-          "service_tbhfnve",
-          "template_clkojct", // Replace with your EmailJS Template ID
-          {
-            to_email: "info@techrisedti.org",
-            subscriber_email: subscriberEmail,
-            message: `New newsletter subscription from: ${subscriberEmail}`,
-            subscription_date: new Date().toLocaleString(),
-            subject: "New Newsletter Subscription",
-          }
-        );
+// // Newsletter Form Validation
 
-        console.log("Email sent successfully!", response.status, response.text);
-        alert(
-          "Thank you for subscribing! We'll send updates to " + subscriberEmail
-        );
-        emailInput.value = "";
-      } catch (error) {
-        console.error("Failed to send email:", error);
-        alert(
-          "Sorry, something went wrong. Please try again or contact us directly."
-        );
-      } finally {
-        // Reset button
-        sendBtn.textContent = originalText;
-        sendBtn.style.pointerEvents = "auto";
-        sendBtn.style.opacity = "1";
-      }
-    } else {
-      alert("Please enter a valid email address.");
-    }
-  });
-}
+// (function () {
+//   emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+// })();
+
+// // Step 3: Send email when button is clicked
+// const sendBtn = document.querySelector(".send-btn a");
+// if (sendBtn) {
+//   sendBtn.addEventListener("click", async (e) => {
+//     e.preventDefault();
+//     const emailInput = document.querySelector(".entryarea input");
+
+//     // Validate email
+//     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+//     if (emailInput && emailRegex.test(emailInput.value)) {
+//       const subscriberEmail = emailInput.value;
+
+//       // Disable button and show loading
+//       const originalText = sendBtn.textContent;
+//       sendBtn.textContent = "Sending...";
+//       sendBtn.style.pointerEvents = "none";
+//       sendBtn.style.opacity = "0.6";
+
+//       try {
+//         // Send email using EmailJS
+//         const response = await emailjs.send(
+//           "service_tbhfnve", // Replace with your EmailJS Service ID
+//           "service_tbhfnve",
+//           "template_clkojct", // Replace with your EmailJS Template ID
+//           {
+//             to_email: "info@techrisedti.org",
+//             subscriber_email: subscriberEmail,
+//             message: `New newsletter subscription from: ${subscriberEmail}`,
+//             subscription_date: new Date().toLocaleString(),
+//             subject: "New Newsletter Subscription",
+//           }
+//         );
+
+//         console.log("Email sent successfully!", response.status, response.text);
+//         alert(
+//           "Thank you for subscribing! We'll send updates to " + subscriberEmail
+//         );
+//         emailInput.value = "";
+//       } catch (error) {
+//         console.error("Failed to send email:", error);
+//         alert(
+//           "Sorry, something went wrong. Please try again or contact us directly."
+//         );
+//       } finally {
+//         // Reset button
+//         sendBtn.textContent = originalText;
+//         sendBtn.style.pointerEvents = "auto";
+//         sendBtn.style.opacity = "1";
+//       }
+//     } else {
+//       alert("Please enter a valid email address.");
+//     }
+//   });
+// }
 
 
 //SECOND OPTION
@@ -204,3 +261,5 @@ document.addEventListener("DOMContentLoaded", () => {
     }, frameTime);
   }
 });
+
+
