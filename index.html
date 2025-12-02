@@ -364,12 +364,18 @@
         </div>
 
         <div class="entryarea">
-          <input type="text" required />
-          <label for="">Email Address</label>
+          <form action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="3dd7733c-7347-4f47-b29a-79ab58de573a">
+            <input type="text" name="email" placeholder="Your Email Address" required />
+            <button class="stay" type="submit">Send</button>
+          </form>
 
-          <div class="send-btn">
+          <!-- <input type="text" required />
+          <label for="">Email Address</label> -->
+
+          <!-- <div class="send-btn">
             <a href="#">Send</a>
-          </div>
+          </div> -->
         </div>
       </div>
     </section>

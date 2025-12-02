@@ -861,7 +861,38 @@ p {
   margin-bottom: 0.5rem;
 }
 
-.entryarea {
+.entryarea{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 5rem;
+}
+
+.entryarea .stay{
+  display: inline-block;
+  text-decoration: none;
+  padding: 14px 40px;
+  color: var(--plain-white);
+  background: var(--primary-color);
+  border-radius: 0.5rem;
+  transition: all 0.5s ease;
+  margin-left: 1rem;
+  border: none;
+}
+
+.entryarea input{
+  width: 320px;
+  height: 60px;
+  font-size: 1rem;
+  color: var(--text-color-2);
+  padding: 0 10px;
+  background: transparent;
+  border: 1.2px solid var(--new-border);
+  outline: none;
+  border-radius: 5px;
+}
+
+/* .entryarea {
   position: relative;
   margin: 20px 0;
   display: flex;
@@ -909,7 +940,7 @@ p {
   top: 0;
   font-size: 1rem;
   background: var(--contrast-bg);
-}
+} */
 
 /*FOOTER*/
 .footer {
