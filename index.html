@@ -38,8 +38,18 @@
         <li><a href="contact.html">Contact</a></li>
       </ul>
       <div class="nav__buttons">
-        <a class="btn btn--outline" href="https://forms.gle/LqQLqUFfuZMLU83W9" target="_blank">Volunteer</a>
-        <a class="btn btn--primary" href="https://forms.gle/ccUEtieAbQiCz4aD7" target="_blank">Donate</a>
+        <a
+          class="btn btn--outline"
+          href="https://forms.gle/LqQLqUFfuZMLU83W9"
+          target="_blank"
+          >Volunteer</a
+        >
+        <a
+          class="btn btn--primary"
+          href="https://forms.gle/ccUEtieAbQiCz4aD7"
+          target="_blank"
+          >Donate</a
+        >
       </div>
 
       <!-- <div class="btn-nav">
@@ -298,7 +308,12 @@
           <p>
             Fuel product development, community grants, and field operations.
           </p>
-          <a class="give" href="https://forms.gle/ccUEtieAbQiCz4aD7" target="_blank">Donate</a>
+          <a
+            class="give"
+            href="https://forms.gle/ccUEtieAbQiCz4aD7"
+            target="_blank"
+            >Donate</a
+          >
         </div>
         <!--2-->
         <div class="sup-crd 2">
@@ -327,7 +342,12 @@
             Join us as a mentor, trainer, or project volunteer and help shape
             the future of technology for good.
           </p>
-          <a class="join" href="https://forms.gle/LqQLqUFfuZMLU83W9" target="_blank">Volunteer</a>
+          <a
+            class="join"
+            href="https://forms.gle/LqQLqUFfuZMLU83W9"
+            target="_blank"
+            >Volunteer</a
+          >
         </div>
       </div>
     </section>
@@ -363,20 +383,41 @@
           </p>
         </div>
 
-        <div class="entryarea">
+        <!-- <div class="entryarea">
           <form action="https://api.web3forms.com/submit" method="POST">
             <input type="hidden" name="access_key" value="3dd7733c-7347-4f47-b29a-79ab58de573a">
             <input type="text" name="email" placeholder="Your Email Address" required />
             <button class="stay" type="submit">Send</button>
-          </form>
+          </form> -->
 
-          <!-- <input type="text" required />
+        <div class="entryarea">
+          <form id="emailForm" action="#">
+            <input
+              type="text"
+              name="email"
+              placeholder="Your Email Address"
+              required
+            />
+            <button class="stay" type="submit">Send</button>
+          </form>
+        </div>
+
+        <!-- Popup card -->
+        <div id="successPopup" class="popup-overlay" style="display: none">
+          <div class="popup-card">
+            <h3>Success</h3>
+            <p>Your email has been successfully submitted!</p>
+            <button id="closePopup">OK</button>
+          </div>
+        </div>
+
+        <!-- <input type="text" required />
           <label for="">Email Address</label> -->
 
-          <!-- <div class="send-btn">
+        <!-- <div class="send-btn">
             <a href="#">Send</a>
           </div> -->
-        </div>
+        <!-- </div> -->
       </div>
     </section>
 
@@ -403,10 +444,16 @@
 
       <div class="social-media">
         <h3>Social Links</h3>
-        <a href="https://www.linkedin.com/company/techrise-dti/" target="_blank">Linkedin</a>
+        <a href="https://www.linkedin.com/company/techrise-dti/" target="_blank"
+          >Linkedin</a
+        >
         <a href="https://x.com/techRiseDTI" target="_blank">Twitter</a>
-        <a href="https://web.facebook.com/techriseDTI" target="_blank">Facebook</a>
-        <a href="https://www.youtube.com/@Techrise-dti" target="_blank">YouTube</a>
+        <a href="https://web.facebook.com/techriseDTI" target="_blank"
+          >Facebook</a
+        >
+        <a href="https://www.youtube.com/@Techrise-dti" target="_blank"
+          >YouTube</a
+        >
       </div>
     </section>
 

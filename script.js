@@ -262,4 +262,27 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+const form = document.getElementById('emailForm');
+  const popup = document.getElementById('successPopup');
+  const closeBtn = document.getElementById('closePopup');
 
+  form.addEventListener('submit', function (e) {
+    e.preventDefault(); // stop actual form submission
+
+    // Show popup card
+    popup.style.display = 'flex';
+
+    // Clear the form
+    form.reset();
+  });
+
+  closeBtn.addEventListener('click', function () {
+    popup.style.display = 'none';
+  });
+
+  // Optional: close popup when clicking outside the card
+  popup.addEventListener('click', function (e) {
+    if (e.target === popup) {
+      popup.style.display = 'none';
+    }
+  });
