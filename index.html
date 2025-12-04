@@ -391,14 +391,26 @@
           </form> -->
 
         <div class="entryarea">
-          <form id="emailForm" action="#">
+          <form
+            id="emailForm"
+            action="https://formspree.io/f/myzrpgny"
+            method="POST"
+          >
             <input
-              type="text"
+              type="email"
+              id="emailInput"
               name="email"
               placeholder="Your Email Address"
               required
             />
+            <!-- <input
+              type="hidden"
+              name="target_email"
+              value="youremail@gmail.com"
+            /> -->
             <button class="stay" type="submit">Send</button>
+
+            <p id="errorMessage">Please enter a valid email address.</p>
           </form>
         </div>
 

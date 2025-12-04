@@ -262,27 +262,109 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+
+// // Newsletter form submission with popup confirmation
+// const form = document.getElementById('emailForm');
+//   const popup = document.getElementById('successPopup');
+//   const closeBtn = document.getElementById('closePopup');
+
+//   form.addEventListener('submit', function (e) {
+//     e.preventDefault(); // stop actual form submission
+
+//     // Show popup card
+//     popup.style.display = 'flex';
+
+//     // Clear the form
+//     form.reset();
+//   });
+
+//   closeBtn.addEventListener('click', function () {
+//     popup.style.display = 'none';
+//   });
+
+//   // Optional: close popup when clicking outside the card
+//   popup.addEventListener('click', function (e) {
+//     if (e.target === popup) {
+//       popup.style.display = 'none';
+//     }
+//   });
+
+// const form = document.getElementById('emailForm');
+//   const popup = document.getElementById('successPopup');
+//   const closeBtn = document.getElementById('closePopup');
+//   const emailInput = document.getElementById('emailInput');
+//   const errorMessage = document.getElementById('errorMessage');
+
+//   function isValidEmail(email) {
+//     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+//     return regex.test(email);
+//   }
+
+//   form.addEventListener('submit', function (e) {
+//     e.preventDefault();
+
+//     const emailValue = emailInput.value.trim();
+
+//     if (!isValidEmail(emailValue)) {
+//       errorMessage.style.display = 'block';
+//       return;
+//     }
+
+//     errorMessage.style.display = 'none';
+//     popup.style.display = 'flex';
+//     form.reset();
+//   });
+
+//   closeBtn.addEventListener('click', function () {
+//     popup.style.display = 'none';
+//   });
+
 const form = document.getElementById('emailForm');
   const popup = document.getElementById('successPopup');
   const closeBtn = document.getElementById('closePopup');
+  const emailInput = document.getElementById('emailInput');
+  const errorMessage = document.getElementById('errorMessage');
 
-  form.addEventListener('submit', function (e) {
-    e.preventDefault(); // stop actual form submission
+  function isValidEmail(email) {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+  }
 
-    // Show popup card
-    popup.style.display = 'flex';
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
 
-    // Clear the form
-    form.reset();
+    const emailValue = emailInput.value.trim();
+
+    if (!isValidEmail(emailValue)) {
+      errorMessage.style.display = 'block';
+      return;
+    }
+
+    errorMessage.style.display = 'none';
+
+    // Send to Formspree (which forwards to your Gmail)
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: { Accept: 'application/json' }
+      });
+
+      if (response.ok) {
+        popup.style.display = 'flex';
+        form.reset();
+      } else {
+        errorMessage.textContent = 'Something went wrong. Please try again.';
+        errorMessage.style.display = 'block';
+      }
+    } catch (err) {
+      errorMessage.textContent = 'Network error. Please try again.';
+      errorMessage.style.display = 'block';
+    }
   });
 
   closeBtn.addEventListener('click', function () {
     popup.style.display = 'none';
-  });
-
-  // Optional: close popup when clicking outside the card
-  popup.addEventListener('click', function (e) {
-    if (e.target === popup) {
-      popup.style.display = 'none';
-    }
   });
